@@ -1,8 +1,6 @@
+# https://github.com/salesforce/ALBEF/blob/main/utils.py
 from util.distributed import is_dist_avail_and_initialized
 from util.console_color import Prints
-import time
-import datetime
-
 import torch
 import torch.distributed as dist
 
