@@ -1,0 +1,43 @@
+# environmental settings
+random_seed: 0
+device: 'cuda'
+dist_url: 'env://'
+project_name: demo
+run_name: baseline
+dataset_name: toy_dataset
+opt_level: O1
+mode: train
+use_wandb: False
+loss_name: MSELoss
+
+# training hyperparameters
+train_batch_size: 128
+valid_batch_size: 1024
+test_batch_size: 128
+num_epoch: &num_epoch 150
+
+# model hyperparameters
+model_name: ToyModel
+in_features: 2
+out_features: 1
+
+
+# learning rate scheduler
+sched: {
+  sched: cosine, 
+  lr: 1e1, 
+  epochs: *num_epoch,
+  min_lr: 1e-0, 
+  decay_rate: 0.9, 
+  decay_epochs: 2,
+  warmup_lr: 1e-2, 
+  warmup_epochs: 0, 
+  cooldown_epochs: 0
+}
+
+# optimizer
+optim: {
+  opt: adamW, 
+  lr: 1e1, 
+  weight_decay: 0.01
+}
